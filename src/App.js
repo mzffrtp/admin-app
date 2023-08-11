@@ -2,12 +2,13 @@ import React from "react"
 import './App.css';
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi"
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from "./pages"
 
 function App() {
-  const activeMenu = false
+  const activeMenu = true
   return (
-    <div>
+    <BrowserRouter>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
@@ -26,7 +27,10 @@ function App() {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">navbar</div>
         </div>
       </div>
-    </div>
+      <Routes>
+        <Route index element={<Ecommerce />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
